@@ -12,7 +12,7 @@
                         <input type="number" name="identitas" id="identitas" class="form-control" required="">
                     </div>
                     <div class="form-group pull-right">
-                        <input type="submit" name="add" value="Absen" class="btn btn-success">
+                        <input type="submit" name="absen" value="Absen" class="btn btn-success">
                     </div>
                 </form>
         </div>

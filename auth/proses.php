@@ -1,8 +1,5 @@
 <?php
 require_once "../_config/config.php";
-require "../_assets/libs/vendor/autoload.php";
-
-use Ramsey\Uuid\Uuid;
 
 if(isset($_POST['add'])) {
     $identitas = trim(mysqli_real_escape_string($con, $_POST['identitas']));

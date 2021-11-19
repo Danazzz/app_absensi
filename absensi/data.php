@@ -18,7 +18,6 @@
 							<th>Nama</th>
 							<th>Keterangan</th>
 							<th>Waktu Masuk</th>
-							<th>Waktu Keluar</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -37,7 +36,6 @@
 								<td><?= $data['nama'] ?></td>
 								<td><?= $data['ket'] ?></td>
 								<td><?= $data['s_in'] ?></td>
-								<td><?= $data['s_out'] ?></td>
 								<td align="center">
 								</td>
 							</tr>
