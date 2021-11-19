@@ -34,8 +34,8 @@ else{
                         <input type="text" name="username" id="username" class="form-control" require autofocus>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="text" name="password" id="password" class="form-control" require autofocus>
+                        <label for="pass">Password</label>
+                        <input type="text" name="pass" id="pass" class="form-control" require autofocus>
                     </div>
                     <div class="form-group">
                         <label for="identitas">Nomor Identitas</label>
@@ -69,12 +69,12 @@ else{
                         <input type="text" name="telp" id="telp" class="form-control" required="">
                     </div>
                     <div class="form-group">
-                        <label for="id_status">Pengunjung:</label>
-                        <select>
-                            <option value=1>Umum</option>
-                            <option value=2>Komunitas</option>
-                            <option value=3>Instansi/Dinas</option>
-                            <option value=4>Pelajar/Mahasiswa</option>
+                        <label for="stat">Pengunjung:</label>
+                        <select id="stat" name="stat" class="form-control" required="">
+                            <option value="Umum">Umum</option>
+                            <option value="Komunitas">Komunitas</option>
+                            <option value="Instansi/Dinas">Instansi/Dinas</option>
+                            <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
                         </select>
                     </div>
                     <div class="form-group pull-right">
