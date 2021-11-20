@@ -29,7 +29,7 @@ else{
                 $sql_login = mysqli_query($con, "SELECT*FROM tb_user WHERE username = '$user' AND pass = '$pass'") or die (mysqli_error($con));
                 if ($pass == 'd033e22ae348aeb5660fc2140aec35850c4da997' AND mysqli_num_rows($sql_login) > 0){
                     $_SESSION['user'] = $user;
-                    echo "<script>window.location='".base_url('absensi')."';</script>";
+                    echo "<script>window.location='".base_url('dashboard/data.php')."';</script>";
                 }
                 elseif (mysqli_num_rows($sql_login) > 0){
                     $_SESSION['user'] = $user;

@@ -26,7 +26,7 @@
 						$no = 1;
 						$query = "SELECT * FROM tb_absensi
 							INNER JOIN tb_user ON tb_absensi.id_user = tb_user.id_user
-							ORDER BY tgl DESC
+							ORDER BY s_in DESC
 						";
 						$sql_absensi = mysqli_query($con, $query) or die(mysqli_error($con));
 						while($data = mysqli_fetch_array($sql_absensi)){ ?>
