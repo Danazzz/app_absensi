@@ -32,7 +32,7 @@ if(!isset($_SESSION['user'])){
             <a href="<?=base_url('dashboard')?>">Dashboard</a>
         </li>
         <li>
-            <a href="<?=base_url('absensi/data.php')?>"><span class="text-success">History Absen</span></a>
+            <a href="<?=base_url('dashboard/data.php')?>"><span class="text-success">History Absen</span></a>
         </li>
         <li>
             <a href="<?=base_url('auth/logout.php')?>"><span class="text-danger">Logout</span></a>
