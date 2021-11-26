@@ -34,8 +34,8 @@ else{
                         <input type="text" name="username" id="username" class="form-control" require autofocus>
                     </div>
                     <div class="form-group">
-                        <label for="pass">Password</label>
-                        <input type="text" name="pass" id="pass" class="form-control" require autofocus>
+                        <label for="password">Password</label>
+                        <input type="text" name="password" id="password" class="form-control" require autofocus>
                     </div>
                     <div class="form-group">
                         <label for="identitas">Nomor Identitas</label>
@@ -46,36 +46,27 @@ else{
                         <input type="text" name="nama" id="nama" class="form-control" required="">
                     </div>
                     <div class="form-group">
-                        <label for="jk">Jenis Kelamin</label>
+                        <label for="jkel">Jenis Kelamin</label>
                         <div>
 						    <label class="radio-inline">
-							    <input type="radio" name="jk" id="jk" value="L" required=""> Laki - laki
+							    <input type="radio" name="jkel" id="jkel" value="L" required=""> Laki - laki
 						    </label>
 						    <label class="radio-inline">
-							    <input type="radio" name="jk" value="P"> Perempuan
+							    <input type="radio" name="jkel" id="jkel" value="P"> Perempuan
 						    </label>
 					    </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tgl-lahir">Tanggal Lahir</label>
-                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control" require="">
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat<Pas/label>
                         <textarea name="alamat" id="alamat" class="form-control" required=""></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="telp">No. Telepon</label>
-                        <input type="text" name="telp" id="telp" class="form-control" required="">
+                        <label for="no_telp">No. Telepon</label>
+                        <input type="text" name="no_telp" id="no_telp" class="form-control" required="">
                     </div>
                     <div class="form-group">
-                        <label for="stat">Pengunjung:</label>
-                        <select id="stat" name="stat" class="form-control" required="">
-                            <option value="Umum">Umum</option>
-                            <option value="Komunitas">Komunitas</option>
-                            <option value="Instansi/Dinas">Instansi/Dinas</option>
-                            <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
-                        </select>
+                        <label for="telp">Instansi</label>
+                        <input type="text" name="instansi" id="instansi" class="form-control" required="">
                     </div>
                     <div class="form-group pull-right">
                         <input type="submit" name="add" value="Simpan" class="btn btn-success">
