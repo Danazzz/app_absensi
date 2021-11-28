@@ -16,8 +16,14 @@
             while($data = mysqli_fetch_array($sql_biodata)){ ?>
                 <p>NIM: <?= $data['id_user'] ?> </p><br>
                 <p>Nama: <?= $data['nama'] ?> </p><br>
-                <p>Jenis Kelamin: <?= $data['jkel'] ?> </p><br>
-                <p>Alamat: <?= $data['nama'] ?> </p><br>
+                <?php
+                if($data['jkel']=='L'){?>
+                    <p>Jenis Kelamin: Laki-laki</p><br>
+                <?php } else { ?>
+                    <p>Jenis Kelamin: Perempuan</p><br>
+                <?php
+                } ?>
+                <p>Alamat: <?= $data['alamat'] ?> </p><br>
                 <p>No_telp: <?= $data['no_telp'] ?> </p><br>
                 <p>Instansi: <?= $data['instansi'] ?> </p><br>
             <?php
