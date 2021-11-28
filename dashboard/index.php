@@ -30,11 +30,7 @@
 			} ?>
 
 
-            <form action="proses.php" method="post">
-                <div class="input-group">
-                    <label for="identitas">Nomor Identitas</label>
-                    <input type="number" name="identitas" id="identitas" class="form-control" required="">
-                </div>
+            <form action="proses.php "method="post">
                 <input type="submit" name="absen" value="Absen" class="btn btn-success">
             </form>
         </div>

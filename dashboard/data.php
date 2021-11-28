@@ -14,11 +14,10 @@
 						<tr>
 							<th>No.</th>
 							<th>No. ID</th>
-							<th>Tanggal</th>
 							<th>Nama</th>
-							<th>Jabatan</th>
-							<th>Keterangan</th>
+							<th>Tanggal</th>
 							<th>Waktu Masuk</th>
+							<th>Keterangan</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -36,11 +35,10 @@
 							<tr>
 								<td><?= $no++; ?></td>
 								<td><?= $data['id_user'] ?></td>
-								<td><?= tgl_indo($data['tgl']); ?></td>
 								<td><?= $data['nama'] ?></td>
-								<td><?= $data['status'] ?></td>
-								<td><?= $data['ket'] ?></td>
+								<td><?= tgl_indo($data['tgl']); ?></td>
 								<td><?= $data['s_in'] ?></td>
+								<td><?= $data['ket'] ?></td>
 							</tr>
 						<?php
 						} ?>
