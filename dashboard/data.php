@@ -24,8 +24,11 @@
 					<tbody>
 						<?php
 						$no = 1;
+						$user = $_SESSION['user'];
 						$query = "SELECT * FROM tb_absensi
 							INNER JOIN tb_user ON tb_absensi.id_user = tb_user.id_user
+							INNER JOIN tb_mahasiswa ON tb_absensi.id_user = tb_mahasiswa.id_user
+							WHERE tb_mahasiswa.username = '$user'
 							ORDER BY s_in DESC
 						";
 						$sql_absensi = mysqli_query($con, $query) or die(mysqli_error($con));
