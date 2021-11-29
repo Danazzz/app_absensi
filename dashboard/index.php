@@ -2,10 +2,9 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1>Dashboard</h1>
+            <h1>PROFILE</h1>
             <p>Selamat Datang <mark><?=$_SESSION['user'];?></mark> di Website absensi KEPENG</p>
 
-            
             <?php
             $user = $_SESSION['user'];
             $query = "SELECT * FROM tb_mahasiswa
@@ -26,10 +25,11 @@
                 <p>Alamat: <?= $data['alamat'] ?> </p><br>
                 <p>No_telp: <?= $data['no_telp'] ?> </p><br>
                 <p>Instansi: <?= $data['instansi'] ?> </p><br>
+                <div class="pull-right">
+                    <a href="edit.php?id=<?= $data['id_user'] ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                </div>
             <?php
 			} ?>
-
-
             <form action="proses.php "method="post">
                 <input type="submit" name="absen" value="Absen" class="btn btn-success">
             </form>

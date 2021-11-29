@@ -48,7 +48,7 @@
 		</form>
 	</div>
 
-	<script>
+	<!-- <script>
 		$(document).ready(function(){
 			$('#absensi').DataTable({
 				columnDefs: [{
@@ -59,6 +59,6 @@
 				"order": [0, "asc"]
 			})
 		});
-	</script>
+	</script> -->
 
 <?php include_once('../_footer.php'); ?>
