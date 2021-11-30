@@ -13,8 +13,22 @@ include_once('header.php');
 		<div class="col-lg-6 col-lg-offset-3">
 			<form action="proses.php" method="post">
                 <div class="form-group">
-                    <label for="identitas">Identitas</label>
-                    <input type="text" name="identitas" id="identitas" class="form-control" require autofocus>
+                    <label for="identitas">Nomor Identitas</label>
+                    <select name="identitas" id="identitas" class="form-control" required="">
+                        <option value="">- Pilih -</option>
+                        <?php
+                        $query = mysqli_query($con, "SELECT * FROM tb_mahasiswa ORDER BY id_user ASC") or die(mysqli_error($con));
+                        while($data_identitas = mysqli_fetch_array($query)){
+                            if($data['id_user'] == $data_identitas['id_user']){
+                                $select = "selected";
+                            }
+                            else{
+                                $select = "";
+                            }
+                            echo '<option '.$select.' value="'.$data_identitas['id_user'].'">'.$data_identitas['id_user'].'</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="tgl">Tanggal</label>
