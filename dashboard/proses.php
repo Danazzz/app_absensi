@@ -16,6 +16,8 @@ if(isset($_POST['absen'])) {
 }
 else if(isset($_POST['edit'])) {
     $id = $_POST['id'];
+    var_dump($id);
+    die;
     $nama = trim(mysqli_real_escape_string($con, $_POST['nama']));
     $username = trim(mysqli_real_escape_string($con, $_POST['username']));
     $password = sha1(trim(mysqli_real_escape_string($con, $_POST['password'])));

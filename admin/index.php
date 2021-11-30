@@ -69,7 +69,7 @@
 							$query = "SELECT * FROM tb_absensi
                             INNER JOIN tb_user ON tb_absensi.id_user = tb_user.id_user
                             INNER JOIN tb_mahasiswa ON tb_absensi.id_user = tb_mahasiswa.id_user 
-                            ORDER BY s_in DESC
+                            ORDER BY tgl DESC, s_in DESC
                             LIMIT $posisi, $batas";
 							$query_jml = "SELECT * FROM tb_absensi";
 							$no = $posisi + 1;
@@ -86,8 +86,8 @@
                                     <td><?= $data['s_in'] ?></td>
                                     <td><?= $data['ket'] ?></td>
 									<td class="text-center">
-										<a href="edit.php?id=<?= $data['id_user'] ?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
-										<a href="del.php?id=<?= $data['id_user'] ?>" onclick="return confirm('Yakin akan menghapus data?')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+										<a href="edit.php?id=<?= $data['id_absensi'] ?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
+										<a href="del.php?id=<?= $data['id_absensi'] ?>" onclick="return confirm('Yakin akan menghapus data?')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
 									</td>
 								</tr>
 							<?php
