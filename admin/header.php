@@ -28,10 +28,10 @@ if(!isset($_SESSION['user'])){
                  <a href=""><span class="text-primary"><b>Admin KEPENG</b></span></a>
         </li>
         <li>
-            <a href="<?=base_url('admin/data_mahasiswa.php')?>"><span class="text-success">Data Mahasiswa</span></a>
-        </li>
+            <a href="<?=base_url('admin/index.php')?>"><span class="text-success">History Absen</span></a>
+        </li>        
         <li>
-            <a href="<?=base_url('admin/index.php')?>"><span class="text-warning">History Absen</span></a>
+            <a href="<?=base_url('admin/data_mahasiswa.php')?>"><span class="text-warning">Data Mahasiswa</span></a>
         </li>
         <li>
             <a href="<?=base_url('auth/logout.php')?>"><span class="text-danger">Logout</span></a>

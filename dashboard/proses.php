@@ -11,7 +11,6 @@ if(isset($_POST['absen'])) {
     $data = mysqli_fetch_array($sql_absensi);
     $id_user = $data['id_user'];
     $ket = trim(mysqli_real_escape_string($con, $_POST['ket']));
-    
     mysqli_query($con,"INSERT INTO tb_absensi (id_user, ket) VALUES ('$id_user', '$ket')") or die (mysqli_error($con));
     echo "<script>alert('Anda telah absen');window.location='data.php';</script>";
 }
@@ -27,10 +26,9 @@ else if(isset($_POST['edit'])) {
     $gambar =  $_FILES['gambar']['name'];
     if (strlen($gambar)>0) {
         if (is_uploaded_file($_FILES['gambar']['tmp_name'])) {
-            move_uploaded_file ($_FILES['gambar']['tmp_name'], "C:/xampp/htdocs/app_absensi/_assets/uploads/".$gambar);
+            move_uploaded_file ($_FILES['gambar']['tmp_name'], "../_assets/uploads/".$gambar);
         }
     }
-
     // function upload(){
     //     $namaFile = $_FILES['gambar']['name'];
     //     $ukuranFIle = $_FILES['gambar']['size'];
@@ -63,10 +61,8 @@ else if(isset($_POST['edit'])) {
     // if(!$gambar){
     //     return false;
     // } else {
-
     mysqli_query($con,"UPDATE tb_user SET username = '$username', password = '$password' WHERE id_user = '$id'") or die (mysqli_error($con));
     mysqli_query($con,"UPDATE tb_mahasiswa SET nama = '$nama', username = '$username', jkel = '$jkel', alamat = '$alamat', no_telp = '$no_telp', instansi = '$instansi', gambar = '$gambar' WHERE id_user = '$id'") or die (mysqli_error($con));
     echo "<script>alert('Anda telah absen');window.location='data.php';</script>";
-    
 }
 ?>
