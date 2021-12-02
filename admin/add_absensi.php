@@ -14,7 +14,7 @@ include_once('header.php');
 			<form action="proses.php" method="post">
                 <div class="form-group">
                     <label for="identitas">Nomor Identitas</label>
-                    <select name="identitas" id="identitas" class="form-control" required="">
+                    <select name="identitas" class="form-control" required="">
                         <option value="">- Pilih -</option>
                         <?php
                         $query = mysqli_query($con, "SELECT * FROM tb_mahasiswa ORDER BY id_user ASC") or die(mysqli_error($con));
@@ -32,11 +32,11 @@ include_once('header.php');
                 </div>
                 <div class="form-group">
                     <label for="tgl">Tanggal</label>
-                    <input type="date" name="tgl" id="tgl" class="form-control" value="<?= date('Y-m-d') ?>" required="">
+                    <input type="date" name="tgl" class="form-control" value="<?= date('Y-m-d') ?>" required="">
                 </div>
                 <div class="form-group">
                     <label for="s_in">Waktu Masuk</label>
-                    <input type="time" name="s_in" id="s_in" class="form-control" value="<?= date('H:i:s') ?>" required="">
+                    <input type="time" name="s_in" class="form-control" value="<?= date('H:i:s') ?>" required="">
                 </div>
                 <div class="form-group">
                     <label for="ket">Keterangan</label>
@@ -48,7 +48,7 @@ include_once('header.php');
                     </select>
                 </div>
 				<div class="form-group">
-					<input type="submit" name="add" value="Simpan" class="btn btn-success">
+					<input type="submit" name="add_absensi" value="Simpan" class="btn btn-success">
 				</div>
 			</form>
 		</div>

@@ -1,11 +1,11 @@
 <?php include_once('header.php'); ?>
 
     <div class="box">
-		<h1>History Absensi Mahasiswa</h1>
+		<h1>Daftar Mahasiswa</h1>
 		<h4>
 			<div class="pull-right">
 				<a href="" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-refresh"></i></a>
-				<a href="add_absensi.php" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i> Tambah Absensi</a>
+				<a href="add_mahasiswa.php" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i> Tambah Mahasiswa Baru</a>
 			</div>
 		</h4>
 		<div style="margin-bottom:10px;">
@@ -25,15 +25,17 @@
 						<th>No.</th>
 						<th>No. ID</th>
 						<th>Nama</th>
-                        <th>Tanggal</th>
-                        <th>Waktu Masuk</th>
-                        <th>Keterangan</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Alamat</th>
+                        <th>No. Telp</th>
+						<th>instansi</th>
+						<th>Foto</th>
 						<th><i class="glyphicon glyphicon-cog"></i></th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-						$batas = 10;
+						$batas = 5;
 						$hal = @$_GET['hal'];
 						if(empty($hal)){
 							$posisi = 0;
@@ -46,32 +48,29 @@
 						if($_SERVER['REQUEST_METHOD'] == "POST"){
 							$pencarian = trim(mysqli_real_escape_string($con, $_POST['pencarian']));
 							if($pencarian != ''){
-                                $sql = "SELECT * FROM tb_absensi
-                                INNER JOIN tb_user ON tb_absensi.id_user = tb_user.id_user
-                                INNER JOIN tb_mahasiswa ON tb_absensi.id_user = tb_mahasiswa.id_user
+                                $sql = "SELECT * FROM tb_user
+                                INNER JOIN tb_mahasiswa ON tb_user.id_user = tb_mahasiswa.id_user
                                 WHERE tb_mahasiswa.nama = '%$pencarian%'
-                                ORDER BY tgl DESC, s_in DESC
-								";
+                                ORDER BY tb_user.id_user ASC";
+	
 								$query = $sql;
 								$query_jml = $sql;
 							}
 							else{
-								$query = "SELECT * FROM tb_absensi
-                                INNER JOIN tb_user ON tb_absensi.id_user = tb_user.id_user
-                                INNER JOIN tb_mahasiswa ON tb_absensi.id_user = tb_mahasiswa.id_user 
-                                ORDER BY tgl DESC, s_in DESC
+								$query = "SELECT * FROM tb_user
+                                INNER JOIN tb_mahasiswa ON tb_user.id_user = tb_mahasiswa.id_user 
+                                ORDER BY tb_user.id_user ASC
                                 LIMIT $posisi, $batas";
-								$query_jml = "SELECT * FROM tb_absensi";
+								$query_jml = "SELECT * FROM tb_mahasiswa";
 								$no = $posisi + 1;
 							}
 						}
 						else{
-							$query = "SELECT * FROM tb_absensi
-                            INNER JOIN tb_user ON tb_absensi.id_user = tb_user.id_user
-                            INNER JOIN tb_mahasiswa ON tb_absensi.id_user = tb_mahasiswa.id_user 
-                            ORDER BY tgl DESC, s_in DESC
+							$query = "SELECT * FROM tb_user
+                            INNER JOIN tb_mahasiswa ON tb_user.id_user = tb_mahasiswa.id_user 
+                            ORDER BY tb_user.id_user ASC
                             LIMIT $posisi, $batas";
-							$query_jml = "SELECT * FROM tb_absensi";
+							$query_jml = "SELECT * FROM tb_mahasiswa";
 							$no = $posisi + 1;
 						}
 						
@@ -82,12 +81,14 @@
                                     <td><?= $no++; ?></td>
 									<td><?= $data['id_user']; ?></td>
 									<td><?= $data['nama']; ?></td>
-                                    <td><?= tgl_indo($data['tgl']); ?></td>
-                                    <td><?= $data['s_in'] ?></td>
-                                    <td><?= $data['ket'] ?></td>
+                                    <td><?= $data['jkel']; ?></td>
+                                    <td><?= $data['alamat'] ?></td>
+                                    <td><?= $data['no_telp'] ?></td>
+									<td><?= $data['instansi'] ?></td>
+									<td><img src="..\_assets\uploads\<?= $data['gambar'] ?>" width='90' height='110'></td>
 									<td class="text-center">
-										<a href="edit_absensi.php?id=<?= $data['id_absensi'] ?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
-										<a href="del_absensi.php?id=<?= $data['id_absensi'] ?>" onclick="return confirm('Yakin akan menghapus data?')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+										<a href="edit_mahasiswa.php?id=<?= $data['id_mahasiswa'] ?>" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
+										<a href="del_mahasiswa.php?id=<?= $data['id_mahasiswa'] ?>" onclick="return confirm('Yakin akan menghapus data?')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
 									</td>
 								</tr>
 							<?php

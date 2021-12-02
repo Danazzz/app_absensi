@@ -21,6 +21,7 @@ include_once('../_header.php');
 			$data = mysqli_fetch_array($sql_edit);
 			?>
 			<form action="proses.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $id ?>">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" class="form-control" value="<?=$data['username'] ?>" require autofocus>
@@ -37,10 +38,10 @@ include_once('../_header.php');
                     <label for="jkel">Jenis Kelamin</label>
                     <div>
 						<label class="radio-inline">
-							<input type="radio" name="jkel" id="jkel" value="L" required=""> Laki - laki
+							<input type="radio" name="jkel" id="jkelL" value="L" required=""> Laki - laki
 						</label>
 						<label class="radio-inline">
-							<input type="radio" name="jkel" id="jkel" value="P"> Perempuan
+							<input type="radio" name="jkel" id="jkelP" value="P"> Perempuan
 						</label>
 					</div>
                 </div>
@@ -56,10 +57,10 @@ include_once('../_header.php');
                     <label for="telp">Instansi</label>
                     <input type="text" name="instansi" id="instansi" class="form-control" value="<?=$data['instansi'] ?>" required="">
                 </div>
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="gambar">Pilih foto untuk diupload:</label>
-                    <input type="file" name="gambar" id="gambar">
-                </div> -->
+                    <input type="file" name="gambar">
+                </div>
 				<div class="form-group">
                     <input type="reset" name="reset" value="Reset" class="btn btn-default">
 					<input type="submit" name="edit" value="Simpan" class="btn btn-success">

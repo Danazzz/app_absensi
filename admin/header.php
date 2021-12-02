@@ -1,6 +1,5 @@
 <?php
 require_once "../_config/config.php";
-require "../_assets/libs/vendor/autoload.php";
 
 if(!isset($_SESSION['user'])){
     echo "<script>window.location='".base_url('auth/login.php')."';</script>";
@@ -27,6 +26,12 @@ if(!isset($_SESSION['user'])){
            <ul class="sidebar-nav">
               <li class="sidebar-brand">
                  <a href=""><span class="text-primary"><b>Admin KEPENG</b></span></a>
+        </li>
+        <li>
+            <a href="<?=base_url('admin/data_mahasiswa.php')?>"><span class="text-success">Data Mahasiswa</span></a>
+        </li>
+        <li>
+            <a href="<?=base_url('admin/index.php')?>"><span class="text-warning">History Absen</span></a>
         </li>
         <li>
             <a href="<?=base_url('auth/logout.php')?>"><span class="text-danger">Logout</span></a>

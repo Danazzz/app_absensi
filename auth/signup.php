@@ -28,7 +28,7 @@ else{
         </h4>
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3">
-                <form action="proses.php" method="post">
+                <form action="proses.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" name="username" id="username" class="form-control" require autofocus>
@@ -67,6 +67,10 @@ else{
                     <div class="form-group">
                         <label for="telp">Instansi</label>
                         <input type="text" name="instansi" id="instansi" class="form-control" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="gambar">Pilih foto untuk diupload:</label>
+                        <input type="file" name="gambar">
                     </div>
                     <div class="form-group pull-right">
                         <input type="submit" name="add" value="Simpan" class="btn btn-success">
