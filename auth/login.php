@@ -26,16 +26,17 @@ else{
             if(isset($_POST['login'])){
                 $user = trim(mysqli_real_escape_string($con, $_POST['user']));
                 $pass = sha1(trim(mysqli_real_escape_string($con, $_POST['pass'])));
-                $sql_login = mysqli_query($con, "SELECT*FROM tb_user WHERE username = '$user' AND pass = '$pass'") or die (mysqli_error($con));
-                if ($pass == 'd033e22ae348aeb5660fc2140aec35850c4da997' AND mysqli_num_rows($sql_login) > 0){
-                    $_SESSION['user'] = $user;
-                    echo "<script>window.location='".base_url('dashboard/data.php')."';</script>";
-                }
-                elseif (mysqli_num_rows($sql_login) > 0){
-                    $_SESSION['user'] = $user;
-                    echo "<script>window.location='".base_url()."';</script>";
-                }
-                else{ ?>
+                $sql_login = mysqli_query($con, "SELECT*FROM tb_user WHERE username = '$user' AND password = '$pass'") or die (mysqli_error($con));
+                $sql_check = mysqli_query($con, "SELECT*FROM tb_user WHERE username = '$user' AND role = 'admin'") or die (mysqli_error($con));
+                if (mysqli_num_rows($sql_login) > 0){
+                    if (mysqli_num_rows($sql_check) > 0){
+                        $_SESSION['user'] = 'admin';
+                        echo "<script>window.location='".base_url('admin')."';</script>";
+                    }else{
+                        $_SESSION['user'] = $user;
+                        echo "<script>window.location='".base_url('')."';</script>";
+                    }
+                }else{ ?>
                     <div class="row">
                         <div class="col-lg-6 col-lg-offset-3">
                             <div class="alert alert-danger alert-dismissable" role="alert">

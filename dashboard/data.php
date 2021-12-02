@@ -14,18 +14,20 @@
 						<tr>
 							<th>No.</th>
 							<th>No. ID</th>
-							<th>Tanggal</th>
 							<th>Nama</th>
-							<th>Jabatan</th>
-							<th>Keterangan</th>
+							<th>Tanggal</th>
 							<th>Waktu Masuk</th>
+							<th>Keterangan</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
 						$no = 1;
+						$user = $_SESSION['user'];
 						$query = "SELECT * FROM tb_absensi
 							INNER JOIN tb_user ON tb_absensi.id_user = tb_user.id_user
+							INNER JOIN tb_mahasiswa ON tb_absensi.id_user = tb_mahasiswa.id_user
+							WHERE tb_mahasiswa.username = '$user'
 							ORDER BY s_in DESC
 						";
 						$sql_absensi = mysqli_query($con, $query) or die(mysqli_error($con));
@@ -33,11 +35,10 @@
 							<tr>
 								<td><?= $no++; ?></td>
 								<td><?= $data['id_user'] ?></td>
-								<td><?= tgl_indo($data['tgl']); ?></td>
 								<td><?= $data['nama'] ?></td>
-								<td><?= $data['status'] ?></td>
-								<td><?= $data['ket'] ?></td>
+								<td><?= tgl_indo($data['tgl']); ?></td>
 								<td><?= $data['s_in'] ?></td>
+								<td><?= $data['ket'] ?></td>
 							</tr>
 						<?php
 						} ?>
@@ -46,18 +47,5 @@
 			</div>
 		</form>
 	</div>
-
-	<script>
-		$(document).ready(function(){
-			$('#absensi').DataTable({
-				columnDefs: [{
-					"searchable": false,
-					"orderable": false,
-					"targets": 8
-				}],
-				"order": [0, "asc"]
-			})
-		});
-	</script>
 
 <?php include_once('../_footer.php'); ?>
