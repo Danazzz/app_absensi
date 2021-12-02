@@ -11,7 +11,7 @@ include_once('header.php');
 	</h4>
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-            <form action="proses.php" method="post">
+            <form action="proses.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" class="form-control" require autofocus>
@@ -45,7 +45,7 @@ include_once('header.php');
                 </div>
                 <div class="form-group">
                     <label for="no_telp">No. Telepon</label>
-                    <input type="text" name="no_telp" class="form-control" required="">
+                    <input type="tel" name="no_telp" class="form-control" placeholder="088888888888" pattern="[0-9]{12}" required="">
                 </div>
                 <div class="form-group">
                     <label for="telp">Instansi</label>

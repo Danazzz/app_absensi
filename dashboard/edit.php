@@ -17,8 +17,8 @@ include_once('../_header.php');
             INNER JOIN tb_user ON tb_mahasiswa.id_user = tb_user.id_user 
             WHERE tb_mahasiswa.id_user='$id'
             ";
-            $sql_edit = mysqli_query($con, $query) or die(mysqli_error($con));
-			$data = mysqli_fetch_array($sql_edit);
+            $sql = mysqli_query($con, $query) or die(mysqli_error($con));
+			$data = mysqli_fetch_array($sql);
 			?>
 			<form action="proses.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?= $id ?>">
@@ -31,7 +31,7 @@ include_once('../_header.php');
                     <input type="password" name="password" id="password" class="form-control" required="">
                 </div>
                 <div class="form-group">
-                    <label for="nama">Nama<Pas/label>
+                    <label for="nama">Nama</label>
                     <input type="text" name="nama" id="nama" class="form-control" value="<?=$data['nama'] ?>" required="">
                 </div>
                 <div class="form-group">

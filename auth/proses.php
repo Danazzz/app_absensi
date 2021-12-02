@@ -15,7 +15,7 @@ if(isset($_POST['add'])) {
 
     if (strlen($gambar)>0) {
         if (is_uploaded_file($_FILES['gambar']['tmp_name'])) {
-            move_uploaded_file ($_FILES['gambar']['tmp_name'], "C:/xampp/htdocs/app_absensi/_assets/uploads/".$gambar);
+            move_uploaded_file ($_FILES['gambar']['tmp_name'], "../_assets/uploads/".$gambar);
         }
     }
 
