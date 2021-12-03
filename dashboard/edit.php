@@ -22,6 +22,7 @@ include_once('../_header.php');
 			?>
 			<form action="proses.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?= $id ?>">
+                <input type="hidden" name="gambarlama" value="<?= $data['gambar'] ?>">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" class="form-control" value="<?=$data['username'] ?>" require autofocus>
@@ -47,7 +48,7 @@ include_once('../_header.php');
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat<Pas/label>
-                    <textarea name="alamat" id="alamat" class="form-control" required=""></textarea>
+                    <textarea name="alamat" id="alamat" class="form-control" required=""><?= $data['alamat'] ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="no_telp">No. Telepon</label>
@@ -58,7 +59,7 @@ include_once('../_header.php');
                     <input type="text" name="instansi" id="instansi" class="form-control" value="<?=$data['instansi'] ?>" required="">
                 </div>
                 <div class="form-group">
-                    <label for="gambar">Pilih foto untuk diupload:</label>
+                    <label for="gambar">Ubah foto</label>
                     <input type="file" name="gambar">
                 </div>
 				<div class="form-group">

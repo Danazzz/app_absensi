@@ -69,7 +69,7 @@ else{
                         <input type="text" name="instansi" id="instansi" class="form-control" required="">
                     </div>
                     <div class="form-group">
-                        <label for="gambar">Pilih foto untuk diupload:</label>
+                        <label for="gambar">Pilih foto untuk diupload</label>
                         <input type="file" name="gambar">
                     </div>
                     <div class="form-group pull-right">

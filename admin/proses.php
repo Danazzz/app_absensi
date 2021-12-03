@@ -26,11 +26,9 @@ else if(isset($_POST['add_mahasiswa'])) {
     $alamat = trim(mysqli_real_escape_string($con, $_POST['alamat']));
     $no_telp = trim(mysqli_real_escape_string($con, $_POST['no_telp']));
     $instansi = trim(mysqli_real_escape_string($con, $_POST['instansi']));
-    $gambar =  $_FILES['gambar']['name'];
-    if (strlen($gambar)>0) {
-        if (is_uploaded_file($_FILES['gambar']['tmp_name'])) {
-            move_uploaded_file ($_FILES['gambar']['tmp_name'], "../_assets/uploads/".$gambar);
-        }
+    $gambar = upload();
+    if(!$gambar){
+        return false;
     }
     mysqli_query($con,"INSERT INTO tb_user(id_user, username, password, role ) VALUES ( '$identitas', '$username', '$password', 'mahasiswa')") or die (mysqli_error($con));
     mysqli_query($con,"INSERT INTO tb_mahasiswa(id_mahasiswa, id_user, nama, username, jkel, alamat, no_telp, instansi, gambar) VALUES ('', '$identitas', '$nama', '$username', '$jkel', '$alamat', '$no_telp', '$instansi', '$gambar')") or die (mysqli_error($con));
@@ -46,11 +44,11 @@ else if(isset($_POST['edit_mahasiswa'])) {
     $alamat = trim(mysqli_real_escape_string($con, $_POST['alamat']));
     $no_telp = trim(mysqli_real_escape_string($con, $_POST['no_telp']));
     $instansi = trim(mysqli_real_escape_string($con, $_POST['instansi']));
-    $gambar =  $_FILES['gambar']['name'];
-    if (strlen($gambar)>0) {
-        if (is_uploaded_file($_FILES['gambar']['tmp_name'])) {
-            move_uploaded_file ($_FILES['gambar']['tmp_name'], "../_assets/uploads/".$gambar);
-        }
+    $gambarlama = trim(mysqli_real_escape_string($con, $_POST['gambarlama']));
+    if($_FILES['gambar']['error'] === 4){
+        $gambar = $gambarlama;
+    } else {
+        $gambar = upload();
     }
     mysqli_query($con,"UPDATE tb_user SET username = '$username', password = '$password' WHERE id_user = '$id'") or die (mysqli_error($con));
     mysqli_query($con,"UPDATE tb_mahasiswa SET nama = '$nama', username = '$username', jkel = '$jkel', alamat = '$alamat', no_telp = '$no_telp', instansi = '$instansi', gambar = '$gambar' WHERE id_mahasiswa = '$id'") or die (mysqli_error($con));

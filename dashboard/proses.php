@@ -23,46 +23,14 @@ else if(isset($_POST['edit'])) {
     $alamat = trim(mysqli_real_escape_string($con, $_POST['alamat']));
     $no_telp = trim(mysqli_real_escape_string($con, $_POST['no_telp']));
     $instansi = trim(mysqli_real_escape_string($con, $_POST['instansi']));
-    $gambar =  $_FILES['gambar']['name'];
-    if (strlen($gambar)>0) {
-        if (is_uploaded_file($_FILES['gambar']['tmp_name'])) {
-            move_uploaded_file ($_FILES['gambar']['tmp_name'], "../_assets/uploads/".$gambar);
-        }
+    $gambarlama = trim(mysqli_real_escape_string($con, $_POST['gambarlama']));
+    if($_FILES['gambar']['error'] === 4){
+        $gambar = $gambarlama;
+    } else {
+        $gambar = upload();
     }
-    // function upload(){
-    //     $namaFile = $_FILES['gambar']['name'];
-    //     $ukuranFIle = $_FILES['gambar']['size'];
-    //     $error = $_FILES['gambar']['error'];
-    //     $tmpName = $_FILES['gambar']['tmp_name'];
-    //     $formatGambar = ['jpg','jpeg','png'];
-    //     $format = explode('.', $namaFile);
-    //     $format = strtolower(end($format));
-
-    //     if($error === 4){
-    //         echo "<script>alert ('Gambar tidak ada!')</script>";
-    //         return false;
-    //     }
-
-    //     if(!in_array($format,$formatGambar)){
-    //         echo "<script>alert ('yang anda upload bukan gambar!')</script>";
-    //         return false;
-    //     }
-
-    //     if($ukuranFIle > 10000000){
-    //         echo "<script>alert ('Ukuran terlalu besar!')</script>";
-    //         return false;
-    //     }
-
-    //     move_uploaded_file($tmpName,'C:\xampp\htdocs\app_absensi\_assets\uploads' . $namaFile);
-    //     return $namaFile;
-    // }
-
-    // $gambar = upload();
-    // if(!$gambar){
-    //     return false;
-    // } else {
     mysqli_query($con,"UPDATE tb_user SET username = '$username', password = '$password' WHERE id_user = '$id'") or die (mysqli_error($con));
     mysqli_query($con,"UPDATE tb_mahasiswa SET nama = '$nama', username = '$username', jkel = '$jkel', alamat = '$alamat', no_telp = '$no_telp', instansi = '$instansi', gambar = '$gambar' WHERE id_user = '$id'") or die (mysqli_error($con));
-    echo "<script>alert('Anda telah absen');window.location='data.php';</script>";
+    echo "<script>alert('Anda telah absen');window.location='index.php';</script>";
 }
 ?>

@@ -23,6 +23,7 @@ include_once('header.php');
             <form action="proses.php" method="post">
 				<input type="hidden" name="id" value="<?= $id ?>">
 				<input type="hidden" name="id_user" value="<?= $data['id_user'] ?>">
+                <input type="hidden" name="gambarlama" value="<?= $data['gambar'] ?>">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" class="form-control" value="<?= $data['username'] ?>" require autofocus>
@@ -59,7 +60,7 @@ include_once('header.php');
                     <input type="text" name="instansi" id="instansi" class="form-control" value="<?= $data['instansi'] ?>" required="">
                 </div>
 				<div class="form-group">
-                    <label for="gambar">Pilih foto untuk diupload:</label>
+                    <label for="gambar">Ubah Foto</label>
                     <input type="file" name="gambar" id="gambar">
                 </div>
                 <div class="form-group pull-right">
