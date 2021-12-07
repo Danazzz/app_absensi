@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 09:29 AM
+-- Generation Time: Dec 07, 2021 at 04:51 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -50,7 +50,8 @@ INSERT INTO `tb_absensi` (`id_absensi`, `id_user`, `tgl`, `s_in`, `ket`) VALUES
 (30, '41930031', '2021-11-30', '09:15:12', 'Hadir'),
 (31, '41930031', '2021-11-30', '15:14:54', 'Hadir'),
 (34, '41930040', '2021-12-02', '12:48:25', 'Sakit'),
-(35, '41930040', '2021-12-02', '15:12:52', 'Sakit');
+(35, '41930040', '2021-12-02', '15:12:52', 'Sakit'),
+(36, '41930009', '2021-12-03', '12:47:49', 'Hadir');
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,6 @@ INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `id_user`, `nama`, `username`, `jkel
 (8, '41930037', 'I Gusti Ayu Cintya Wardani', 'cintya', 'P', 'jln. mambal permai', '0989342123', 'UNDIKNAS Denpasar', 'karlin.png'),
 (9, '41930031', 'Ida Bagus Puniardhi Isabha Pidada', 'dream', 'L', 'jln. nangka permai', '342893792845', 'UNDIKSHA Denpasar', 'OIP.jpg'),
 (11, '41930040', 'yody indra', 'yody', 'L', 'Jln. sesetan raya', '5674523413657', 'UNDIKSHA Denpasar', 'unnamed.jpg'),
-(14, '41930012', 'si kungkingkang', 'apel', 'L', 'jln. apel', '6564457687', 'UNDIKNAS Denpasar', 'joao.jpg'),
 (19, '41930019', 'si nanas', 'pineapple', 'L', 'jln. nanas', '3563563234', 'UNDIKNAS Denpasar', '223.jpg');
 
 -- --------------------------------------------------------
@@ -100,9 +100,11 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `username`, `password`, `role`) VALUES
+('41930009', 'huma', '2ef50190d84ebc8bf9f722a9e0e7107503957a7a', 'mahasiswa'),
 ('41930010', 'asd', 'f10e2821bbbea527ea02200352313bc059445190', 'mahasiswa'),
 ('41930011', 'tes', 'd1c056a983786a38ca76a05cda240c7b86d77136', 'mahasiswa'),
 ('41930012', 'apel', '414767634010a8ddb3b32c37617c2eb935747940', 'mahasiswa'),
+('41930015', 'labda', '3b7466c32c3d1cc7f846dcf8c2f9f1369c24b160', 'mahasiswa'),
 ('41930019', 'pineapple', 'ff9907a80070300578eb65a2137670009e8c17cf', 'mahasiswa'),
 ('41930026', 'nanas', '1230fadb536b6b7b40080bd65336a5e9d4dd507e', 'mahasiswa'),
 ('41930031', 'dream', '5f04a8843e6c2de610d1da9296cfa2c6169b4a7f', 'mahasiswa'),
@@ -110,7 +112,11 @@ INSERT INTO `tb_user` (`id_user`, `username`, `password`, `role`) VALUES
 ('41930037', 'cintya', '588129d22c1c9dbffd0a872b5211544cee349d2b', 'mahasiswa'),
 ('41930040', 'yody', '9aad900cd0ee5d11abe409a8a7f79834dc5faa5a', 'mahasiswa'),
 ('41930099', 'pisang', '22a35492f3893ad3b9080e504135fb0582cae38a', 'mahasiswa'),
-('967106f5-4e87-11ec-95ec-00d861e392f3', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin');
+('967106f5-4e87-11ec-95ec-00d861e392f3', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin'),
+('b83c9cf2a8de1ce9a57160f3214b29b5060b416f', 'tes123', 'b83c9cf2a8de1ce9a57160f3214b29b5060b416f', 'mahasiswa'),
+('d1d9b9355fa9cd3e4b1949bbb0844e83dfa1c854', 'air', 'd1d9b9355fa9cd3e4b1949bbb0844e83dfa1c854', 'mahasiswa'),
+('e23bf4a5d1', 'pir', 'pir', 'mahasiswa'),
+('f42da293e5', 'buah', 'buah', 'mahasiswa');
 
 --
 -- Indexes for dumped tables
@@ -144,13 +150,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_absensi`
 --
 ALTER TABLE `tb_absensi`
-  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tb_mahasiswa`
 --
 ALTER TABLE `tb_mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables

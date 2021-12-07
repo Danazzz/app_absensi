@@ -6,7 +6,7 @@ date_default_timezone_set('asia/hong_kong');
 session_start();
 
 // koneksi ke database
-$con=mysqli_connect('localhost','root','','absensi');
+$con = mysqli_connect('localhost','root','','absensi');
 if(mysqli_connect_errno()){
     echo mysqli_connect_error();
 }

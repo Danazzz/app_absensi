@@ -35,7 +35,7 @@ else if(isset($_POST['add_mahasiswa'])) {
     echo "<script>alert('Data berhasil ditambah');window.location='data_mahasiswa.php';</script>";
 }
 else if(isset($_POST['edit_mahasiswa'])) {
-    $id = $_POST['id'];
+    
     $id_user = $_POST['id_user'];
     $nama = trim(mysqli_real_escape_string($con, $_POST['nama']));
     $username = trim(mysqli_real_escape_string($con, $_POST['username']));
