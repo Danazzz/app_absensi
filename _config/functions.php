@@ -85,6 +85,4 @@ function cek_data_user($username,$password){
     }
 }
 //---------------------- *** end *** -------------------------//
-
-
 ?>

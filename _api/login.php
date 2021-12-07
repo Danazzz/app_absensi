@@ -12,7 +12,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     // var_dump($user);die;
     if($user != false){
         //jika berhasil login
-        $response["error"] = FALSE;
+        $response["successfully"] = TRUE;
         $response["user"]["username"] = $user["username"];
         $response["user"]["ID"] = $user["id_user"];
         echo json_encode($response);

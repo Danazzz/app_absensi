@@ -20,7 +20,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['iden
       $user = register_user($username, $password, $identitas);
       if($user){
         // simpan user berhasil
-        $response["error"] = FALSE;
+        $response["successfully"] = TRUE;
         $response["user"]["username"] = $user["username"];
         $response["user"]["ID"] = $user["id_user"];
         echo json_encode($response);
